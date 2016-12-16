@@ -1,0 +1,54 @@
+#define N      3    /* Number of processes */ 
+#define L     10    /* Buffer size */
+#define NIL (N+1)   /* for an undefined value */
+mtype = {mes, ack,agr,term,annonce};
+
+chan canal[N] = [L] of {mtype, byte};
+
+
+inline Initialisation ( ) {
+etat=1;
+unack=0;
+h=0;
+hfin=N+1;
+nbagr=0;
+contenu=0;
+}
+
+proctype envoyer (){
+unack++;
+}
+
+
+
+proctype node(byte id; byte Initial_Token_Holder){
+    
+   byte etat; /* 1 = actif 0 = passif */
+  byte  unack; /* nb ack a recevoir */
+   byte h;
+byte hfin; /* derniere date de terminaison */
+byte last; /* identiité du site le plus recement terminé */
+byte nbagr; /* nombre de reponse à term */
+byte contenu; /* contenu du message */
+   mtype typ_mes;     /* le type du message recu */
+   chan canal_rec = canal[id];     /* un alias pour mon canal de reception */
+   xr canal_rec;                   /* je dois etre le seul a le lire */
+
+   Initialisation ( );
+etat++;
+ printf ("allo %d\n",etat);
+}
+
+	
+init {
+   byte proc; 
+   atomic {
+      proc=0;
+      do
+         :: proc <N ->
+            run node(proc, 0); 
+            proc++
+         :: proc == N -> break 
+      od
+   }
+}

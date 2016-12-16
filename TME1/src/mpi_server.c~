@@ -1,0 +1,67 @@
+#include "../include/mpi_server.h"
+
+static server the_server;
+
+int main(int argc, char **argv){
+
+
+  int my_rank;
+  int nb_proc;
+  int source;
+  int dest;
+  int tag=0;
+  int provided;
+  int flag;
+  
+
+  void msg_pdn(int tag,int source){
+    char message[128];
+    MPI_Status status;
+    if(tag==2){
+      MPI_Recv();
+      printf();
+    }
+    else{
+      printf();
+    }
+  }
+
+  start_server(msg_pdn(0,0));
+
+ void*...
+serveur arg...
+  while(1){
+    mutex
+       MPI_Iprobe(MPI_ANY_SOURCE, MPI_ANY_TAG,MPI_COMM_WORLD,&flag,&status);
+    lache mutecx
+    if(flag)
+      arg_server->callback...
+      printf("Il y a un message\n");
+    else
+      printf("Pas de message\n");
+  }
+
+  return 0;
+}
+
+  
+void start_server (void (*callback)(int tag, int source)){
+
+  MPI_Init_thread(&argc,&argv,MPI_THREAD_SERIALIZED,&provided);
+  MPI_Comm_size(MPI_COMM_WORLD, &nb_proc);
+  MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
+
+}
+
+void destroy_server(){
+
+}
+
+pthread_mutex_t* getMutex(){
+  
+  return &the_server.mutex;
+  
+}
+
+
+

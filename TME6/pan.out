@@ -1,0 +1,345 @@
+verification result:
+spin -a  naimi_squel.txt
+spin: naimi_squel.txt:35, Error: syntax error	saw ''(' = 40'
+spin: naimi_squel.txt:36, Error: syntax error	saw 'keyword: od' near 'od'
+gcc -DMEMLIM=1024 -O2 -DXUSAFE -DSAFETY -DNOCLAIM -w -o pan pan.c
+./pan -m10000 
+Pid: 21208
+
+(Spin Version 6.4.3 -- 16 December 2014)
+	+ Partial Order Reduction
+
+Full statespace search for:
+	never claim         	- (not selected)
+	assertion violations	+
+	cycle checks       	- (disabled by -DSAFETY)
+	invalid end states	+
+
+State-vector 140 byte, depth reached 45, errors: 0
+       97 states, stored
+        5 states, matched
+      102 transitions (= stored+matched)
+       11 atomic steps
+hash conflicts:         0 (resolved)
+
+Stats on memory usage (in Megabytes):
+    0.016	equivalent memory usage for states (stored*(State-vector + overhead))
+    0.288	actual memory usage for states
+  128.000	memory used for hash table (-w24)
+    0.534	memory used for DFS stack (-m10000)
+  128.730	total actual memory usage
+
+
+unreached in proctype node
+	(0 of 34 states)
+unreached in init
+	(0 of 11 states)
+
+pan: elapsed time 0 seconds
+No errors found -- did you verify all claims?
+spin -a  naimi_squel.txt
+spin: naimi_squel.txt:35, Error: syntax error	saw ''(' = 40'
+spin: naimi_squel.txt:36, Error: syntax error	saw 'keyword: od' near 'od'
+gcc -DMEMLIM=1024 -O2 -DXUSAFE -DSAFETY -DNOCLAIM -w -o pan pan.c
+./pan -m10000 
+Pid: 21252
+
+(Spin Version 6.4.3 -- 16 December 2014)
+	+ Partial Order Reduction
+
+Full statespace search for:
+	never claim         	- (not selected)
+	assertion violations	+
+	cycle checks       	- (disabled by -DSAFETY)
+	invalid end states	+
+
+State-vector 140 byte, depth reached 45, errors: 0
+       97 states, stored
+        5 states, matched
+      102 transitions (= stored+matched)
+       11 atomic steps
+hash conflicts:         0 (resolved)
+
+Stats on memory usage (in Megabytes):
+    0.016	equivalent memory usage for states (stored*(State-vector + overhead))
+    0.288	actual memory usage for states
+  128.000	memory used for hash table (-w24)
+    0.534	memory used for DFS stack (-m10000)
+  128.730	total actual memory usage
+
+
+unreached in proctype node
+	(0 of 34 states)
+unreached in init
+	(0 of 11 states)
+
+pan: elapsed time 0 seconds
+No errors found -- did you verify all claims?
+spin -a  naimi_squel.txt
+spin: naimi_squel.txt:35, Error: syntax error	saw ''(' = 40'
+spin: naimi_squel.txt:36, Error: syntax error	saw 'keyword: od' near 'od'
+gcc -DMEMLIM=1024 -O2 -DXUSAFE -DSAFETY -DNOCLAIM -w -o pan pan.c
+./pan -m10000 
+Pid: 21286
+
+(Spin Version 6.4.3 -- 16 December 2014)
+	+ Partial Order Reduction
+
+Full statespace search for:
+	never claim         	- (not selected)
+	assertion violations	+
+	cycle checks       	- (disabled by -DSAFETY)
+	invalid end states	+
+
+State-vector 140 byte, depth reached 45, errors: 0
+       97 states, stored
+        5 states, matched
+      102 transitions (= stored+matched)
+       11 atomic steps
+hash conflicts:         0 (resolved)
+
+Stats on memory usage (in Megabytes):
+    0.016	equivalent memory usage for states (stored*(State-vector + overhead))
+    0.288	actual memory usage for states
+  128.000	memory used for hash table (-w24)
+    0.534	memory used for DFS stack (-m10000)
+  128.730	total actual memory usage
+
+
+unreached in proctype node
+	(0 of 34 states)
+unreached in init
+	(0 of 11 states)
+
+pan: elapsed time 0 seconds
+No errors found -- did you verify all claims?
+spin -a  naimi_squel.txt
+spin: naimi_squel.txt:35, Error: syntax error	saw ''(' = 40'
+spin: naimi_squel.txt:36, Error: syntax error	saw 'keyword: od' near 'od'
+gcc -DMEMLIM=1024 -O2 -DXUSAFE -DSAFETY -DNOCLAIM -w -o pan pan.c
+./pan -m10000 
+Pid: 21320
+
+(Spin Version 6.4.3 -- 16 December 2014)
+	+ Partial Order Reduction
+
+Full statespace search for:
+	never claim         	- (not selected)
+	assertion violations	+
+	cycle checks       	- (disabled by -DSAFETY)
+	invalid end states	+
+
+State-vector 140 byte, depth reached 45, errors: 0
+       97 states, stored
+        5 states, matched
+      102 transitions (= stored+matched)
+       11 atomic steps
+hash conflicts:         0 (resolved)
+
+Stats on memory usage (in Megabytes):
+    0.016	equivalent memory usage for states (stored*(State-vector + overhead))
+    0.288	actual memory usage for states
+  128.000	memory used for hash table (-w24)
+    0.534	memory used for DFS stack (-m10000)
+  128.730	total actual memory usage
+
+
+unreached in proctype node
+	(0 of 34 states)
+unreached in init
+	(0 of 11 states)
+
+pan: elapsed time 0 seconds
+No errors found -- did you verify all claims?
+spin -a  naimi_squel.txt
+spin: naimi_squel.txt:35, Error: syntax error	saw ''(' = 40'
+spin: naimi_squel.txt:36, Error: syntax error	saw 'keyword: od' near 'od'
+gcc -DMEMLIM=1024 -O2 -DXUSAFE -DSAFETY -DNOCLAIM -w -o pan pan.c
+./pan -m10000 
+Pid: 21358
+
+(Spin Version 6.4.3 -- 16 December 2014)
+	+ Partial Order Reduction
+
+Full statespace search for:
+	never claim         	- (not selected)
+	assertion violations	+
+	cycle checks       	- (disabled by -DSAFETY)
+	invalid end states	+
+
+State-vector 140 byte, depth reached 45, errors: 0
+       97 states, stored
+        5 states, matched
+      102 transitions (= stored+matched)
+       11 atomic steps
+hash conflicts:         0 (resolved)
+
+Stats on memory usage (in Megabytes):
+    0.016	equivalent memory usage for states (stored*(State-vector + overhead))
+    0.288	actual memory usage for states
+  128.000	memory used for hash table (-w24)
+    0.534	memory used for DFS stack (-m10000)
+  128.730	total actual memory usage
+
+
+unreached in proctype node
+	(0 of 34 states)
+unreached in init
+	(0 of 11 states)
+
+pan: elapsed time 0 seconds
+No errors found -- did you verify all claims?
+spin -a  naimi_squel.txt
+spin: naimi_squel.txt:35, Error: syntax error	saw ''(' = 40'
+spin: naimi_squel.txt:36, Error: syntax error	saw 'keyword: od' near 'od'
+gcc -DMEMLIM=1024 -O2 -DXUSAFE -DSAFETY -DNOCLAIM -w -o pan pan.c
+./pan -m10000 
+Pid: 21391
+
+(Spin Version 6.4.3 -- 16 December 2014)
+	+ Partial Order Reduction
+
+Full statespace search for:
+	never claim         	- (not selected)
+	assertion violations	+
+	cycle checks       	- (disabled by -DSAFETY)
+	invalid end states	+
+
+State-vector 140 byte, depth reached 45, errors: 0
+       97 states, stored
+        5 states, matched
+      102 transitions (= stored+matched)
+       11 atomic steps
+hash conflicts:         0 (resolved)
+
+Stats on memory usage (in Megabytes):
+    0.016	equivalent memory usage for states (stored*(State-vector + overhead))
+    0.288	actual memory usage for states
+  128.000	memory used for hash table (-w24)
+    0.534	memory used for DFS stack (-m10000)
+  128.730	total actual memory usage
+
+
+unreached in proctype node
+	(0 of 34 states)
+unreached in init
+	(0 of 11 states)
+
+pan: elapsed time 0 seconds
+No errors found -- did you verify all claims?
+spin -a  naimi_squel.txt
+spin: naimi_squel.txt:35, Error: syntax error	saw ''(' = 40'
+spin: naimi_squel.txt:36, Error: syntax error	saw 'keyword: od' near 'od'
+gcc -DMEMLIM=1024 -O2 -DXUSAFE -DSAFETY -DNOCLAIM -w -o pan pan.c
+./pan -m10000 
+Pid: 21452
+
+(Spin Version 6.4.3 -- 16 December 2014)
+	+ Partial Order Reduction
+
+Full statespace search for:
+	never claim         	- (not selected)
+	assertion violations	+
+	cycle checks       	- (disabled by -DSAFETY)
+	invalid end states	+
+
+State-vector 140 byte, depth reached 45, errors: 0
+       97 states, stored
+        5 states, matched
+      102 transitions (= stored+matched)
+       11 atomic steps
+hash conflicts:         0 (resolved)
+
+Stats on memory usage (in Megabytes):
+    0.016	equivalent memory usage for states (stored*(State-vector + overhead))
+    0.288	actual memory usage for states
+  128.000	memory used for hash table (-w24)
+    0.534	memory used for DFS stack (-m10000)
+  128.730	total actual memory usage
+
+
+unreached in proctype node
+	(0 of 34 states)
+unreached in init
+	(0 of 11 states)
+
+pan: elapsed time 0 seconds
+No errors found -- did you verify all claims?
+spin -a  naimi_squel.txt
+spin: naimi_squel.txt:35, Error: syntax error	saw ''(' = 40'
+spin: naimi_squel.txt:36, Error: syntax error	saw 'keyword: od' near 'od'
+gcc -DMEMLIM=1024 -O2 -DXUSAFE -DSAFETY -DNOCLAIM -w -o pan pan.c
+./pan -m10000 
+Pid: 21503
+
+(Spin Version 6.4.3 -- 16 December 2014)
+	+ Partial Order Reduction
+
+Full statespace search for:
+	never claim         	- (not selected)
+	assertion violations	+
+	cycle checks       	- (disabled by -DSAFETY)
+	invalid end states	+
+
+State-vector 140 byte, depth reached 45, errors: 0
+       97 states, stored
+        5 states, matched
+      102 transitions (= stored+matched)
+       11 atomic steps
+hash conflicts:         0 (resolved)
+
+Stats on memory usage (in Megabytes):
+    0.016	equivalent memory usage for states (stored*(State-vector + overhead))
+    0.288	actual memory usage for states
+  128.000	memory used for hash table (-w24)
+    0.534	memory used for DFS stack (-m10000)
+  128.730	total actual memory usage
+
+
+unreached in proctype node
+	(0 of 34 states)
+unreached in init
+	(0 of 11 states)
+
+pan: elapsed time 0 seconds
+No errors found -- did you verify all claims?
+spin -a  naimi_squel.txt
+spin: naimi_squel.txt:35, Error: syntax error	saw ''(' = 40'
+spin: naimi_squel.txt:36, Error: syntax error	saw 'keyword: od' near 'od'
+gcc -DMEMLIM=1024 -O2 -DXUSAFE -DSAFETY -DNOCLAIM -w -o pan pan.c
+./pan -m10000 
+Pid: 21537
+
+(Spin Version 6.4.3 -- 16 December 2014)
+	+ Partial Order Reduction
+
+Full statespace search for:
+	never claim         	- (not selected)
+	assertion violations	+
+	cycle checks       	- (disabled by -DSAFETY)
+	invalid end states	+
+
+State-vector 140 byte, depth reached 45, errors: 0
+       97 states, stored
+        5 states, matched
+      102 transitions (= stored+matched)
+       11 atomic steps
+hash conflicts:         0 (resolved)
+
+Stats on memory usage (in Megabytes):
+    0.016	equivalent memory usage for states (stored*(State-vector + overhead))
+    0.288	actual memory usage for states
+  128.000	memory used for hash table (-w24)
+    0.534	memory used for DFS stack (-m10000)
+  128.730	total actual memory usage
+
+
+unreached in proctype node
+	(0 of 34 states)
+unreached in init
+	(0 of 11 states)
+
+pan: elapsed time 0 seconds
+No errors found -- did you verify all claims?
+
+

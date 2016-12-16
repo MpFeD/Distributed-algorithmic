@@ -1,0 +1,12 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <mpi.h>
+
+int main (int argc, char** argv){
+  int rang;
+  MPI_Status status;
+
+  MPI_Init(&argv, &argv);
+  MPI_Comm_rank(MPI_COMM_WORLD, &rang);
+
+  

@@ -1,0 +1,200 @@
+#define _XOPEN_SOURCE 700
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <semaphore.h>
+#include <fcntl.h>
+#include <sys/stat.h>
+#include <sys/mman.h>
+
+
+/*
+ * Si tous les philosophes saisissent la baguette 
+ * qui est à leur gauche avant de chercher la 
+ * baguette qui est à leur droite, il ne 
+ * pourront plus jamais se saisir 2
+ * baguettes à la fois et resteront bloqués
+ *
+ */
+
+
+/*
+ * Correction : Solution plus simple : un compteur sur le nombre de baguette
+ * initialisé a n-1 baguette. Comme ça si je suis le dernier a prendre la baguette,
+ * je me bloque et je ne prend pas la baguette (similaire a barrière).
+ */
+
+
+sem_t *s,*sp,*sem,*sem2;
+int *listbag;
+
+int N;
+
+
+void prendrebaguettes(int a){
+  
+
+  /*
+   * Modulo la taille du tableau
+   */
+  
+  int j;
+  j=a+1;
+  if (j==N)
+    j=0;
+
+  
+  sem_wait(&sem[0]);
+  sem_wait(&s[a]);
+  sem_wait(&s[j]);
+
+  
+  
+  if (listbag[a]==0 || listbag[j]==0){
+    printf("baguette dejà prise => impossible\n");
+    exit(0);
+  }
+  
+  listbag[a]=0;
+  listbag[j]=0;
+  
+  sem_post(&sp[a]);
+  sem_post(&sp[j]);
+  sem_post(&sem[0]);
+  
+}
+
+void poserbaguettes(int a){
+
+  int j;
+  j=a+1;
+  if (j==N)
+    j=0;
+
+ 
+  sem_wait(&sem2[0]);
+  sem_wait(&sp[a]);
+  sem_wait(&sp[j]);
+ 
+  
+  
+  if (listbag[a]==1 || listbag[j]==1){
+    printf("baguette dejà poser => impossible\n");
+    exit(0);
+  }
+  
+  listbag[j]=1;
+  listbag[a]=1;
+  
+  sem_post(&s[a]);
+  sem_post(&s[j]);
+  sem_post(&sem2[0]);
+}
+
+void go (int a,int P, int C, int M){
+  int i;
+  for(i=0;i<C;i++){
+    printf("Le philosophe %d pense\n",a);
+    sleep(P);
+    prendrebaguettes(a);
+    printf("Le philosophe %d mange\n",a);
+    sleep(M);
+    poserbaguettes(a);  
+  }
+  exit(0);
+}
+
+
+int main (int argc, char** argv){
+  int i;
+  
+  N=5 // nb philosophes
+  int NB_MEALS=3; // nb cycles
+  int P=3; // nb sec penser
+  int M=5; // nb sec manger
+
+  /*
+   * Voici les segments de mémoire,
+   * un segment pour le tableau des
+   * baguettes, deux autres segments 
+   * pour deux tableaux de sémaphores.
+   */
+
+  int fd = shm_open ("seg",O_CREAT | O_TRUNC | O_RDWR,0666);
+  ftruncate(fd, N*sizeof(int));
+  listbag = mmap(NULL, N*sizeof(int), PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+
+  int fd2 = shm_open ("seg2",O_CREAT | O_TRUNC | O_RDWR,0666);
+  ftruncate(fd2, N*sizeof(sem_t));
+  s = mmap(NULL, N*sizeof(sem_t), PROT_READ | PROT_WRITE, MAP_SHARED, fd2, 0);
+
+  
+  int fd3 = shm_open ("seg3",O_CREAT | O_TRUNC | O_RDWR,0666);
+  ftruncate(fd3, N*sizeof(sem_t));
+  sp = mmap(NULL, N*sizeof(sem_t), PROT_READ | PROT_WRITE, MAP_SHARED, fd3, 0);
+
+    
+  int fd4 = shm_open ("seg4",O_CREAT | O_TRUNC | O_RDWR,0666);
+  ftruncate(fd4,N* sizeof(sem_t));
+  sem = mmap(NULL,N* sizeof(sem_t), PROT_READ | PROT_WRITE, MAP_SHARED, fd4, 0);
+
+  
+  int fd5 = shm_open ("seg5",O_CREAT | O_TRUNC | O_RDWR,0666);
+  ftruncate(fd5, N*sizeof(sem_t));
+  sem2 = mmap(NULL, N*sizeof(sem_t), PROT_READ | PROT_WRITE, MAP_SHARED, fd5, 0);
+
+
+  
+  /*
+   * Inialisation des semaphores
+   */
+
+  for (i=0;i<N;i++){
+    sem_init(&s[i], 1, 1);
+    sem_init(&sp[i], 1, 0);
+  }
+  sem_init(&sem[0], 1, 1);
+  sem_init(&sem2[0], 1, 1);
+
+  /*
+   * Initialisation du tableau des
+   * baguettes, la valeure 1 indique
+   * que la baguette est libre,
+   * la valeure 0 indique que la 
+   * baguette a été prise.
+   */
+  for (i=0;i<N;i++)
+    listbag[i]=1;
+  
+  for (i=0;i<N;i++)
+    if(fork()==0)
+      go(i,P,C,M);
+  
+  for (i=0;i<N;i++)
+    wait(NULL);
+
+
+  printf("Fin\n");
+  
+  
+  for (i=0;i<N;i++){
+    sem_destroy(&s[i]);
+    sem_destroy(&sp[i]);
+  }
+  sem_destroy(&sem[0]);
+  sem_destroy(&sem2[0]);
+
+  munmap(listbag, N * sizeof(int));
+  shm_unlink("seg");
+  munmap(s, N * sizeof(sem_t));
+  shm_unlink("seg2");
+  munmap(sp, N * sizeof(sem_t));
+  shm_unlink("seg3");
+  munmap(sem,N* sizeof(sem_t));
+  shm_unlink("seg4");
+  munmap(sem,N* sizeof(sem_t));
+  shm_unlink("seg5");
+  
+  return EXIT_SUCCESS;
+}
+
